@@ -97,7 +97,7 @@ namespace Asteroids
     {
         private static Random zufall = new Random();
         private Polygon form;
-        private int größe;  // Init = 3 (main)
+        private int größe; //AsteroidsMaxSize
 
         public int Größe
         {

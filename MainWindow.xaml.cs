@@ -34,6 +34,7 @@ namespace Asteroids
         //Spieloptionen
         int AnzahlAsteroidenGroß = 6;
         int AnzahlSpieler = 1;
+        int AsteroidsMaxSize = 3;
         // int FramesPerSeconds = 40;
 
         //Spielobjekte
@@ -55,7 +56,7 @@ namespace Asteroids
 
             for (int i = 0; i < AnzahlAsteroidenGroß; i++)
             {
-                asteroiden.Add(new Asteroid(zeichenfläche, 3));
+                asteroiden.Add(new Asteroid(zeichenfläche, AsteroidsMaxSize));
                 Spielobjekte.Add(asteroiden.Last());
             }
 
@@ -104,7 +105,7 @@ namespace Asteroids
             {
                 if (asteroiden[i].Zerstört && asteroiden[i].Größe > 1)
                 {
-                    for (int j = 0; j <= (4 - asteroiden[i].Größe); j++)
+                    for (int j = 0; j <= ((AsteroidsMaxSize +1) - asteroiden[i].Größe); j++)
                     {
                         asteroiden.Add(new Asteroid(zeichenfläche, asteroiden[i].PositionX, asteroiden[i].PositionY, asteroiden[i].Größe - 1));
                         Spielobjekte.Add(asteroiden.Last());
@@ -230,10 +231,10 @@ namespace Asteroids
             }
         }
         private void restartGame()
-        {
+        { 
             for (int i = 0; i < AnzahlAsteroidenGroß ; i++)
             {
-                asteroiden.Add(new Asteroid(zeichenfläche, 3));
+                asteroiden.Add(new Asteroid(zeichenfläche, AsteroidsMaxSize));
                 Spielobjekte.Add(asteroiden.Last());
             }
         }
